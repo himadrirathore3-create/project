@@ -1,5 +1,5 @@
 # Project Responsive Web Design using Bootstrap
-# Date:
+# Date:19/12/2025
 # AIM:
 To create a simplified clone of Dribbble (https://dribbble.com/) landing page.
 
@@ -23,6 +23,179 @@ Create a HTML file and include the needed Bootstrap components.
 Publish the website in the LocalHost.
 
 # PROGRAM :
+```
+views.py
+from django.shortcuts import render
+
+def pro(request):
+    return render(request, 'boot.html')
+```
+```
+urls.py
+from django.contrib import admin
+from django.urls import path
+from myapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.pro, name='pro'),
+    
+]
+```
+```
+boot.html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>electronics</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { background-color: #f8fafc; }
+
+        .navbar { box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+
+        .site-title h1 { color: #b1b8ae; letter-spacing: 2px; }
+
+        .card-box {
+            background: #eaebed;
+            color: #150a0a;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .card-box img {
+            height: 170px;
+            width: 100%;
+            object-fit: cover;
+            padding: 10px;
+            background: #0f172a;
+            border-bottom: 1px solid #334155;
+        }
+
+        .col-5th { width: 20%; padding: 10px; }
+
+        @media (max-width: 992px) { .col-5th { width: 33.33%; } }
+        @media (max-width: 576px) { .col-5th { width: 100%; } }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item px-3"><a class="nav-link">Home</a></li>
+            <li class="nav-item px-3"><a class="nav-link">Products</a></li>
+            <li class="nav-item px-3"><a class="nav-link">About</a></li>
+            <li class="nav-item px-3"><a class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="site-title text-center my-4">
+    <h1 class="fw-bold">Gizmo Galaxy</h1>
+    <p class="text-muted">inviting space for electronics lovers</p>
+</div>
+
+<section class="pb-5">
+    <div class="container text-center">
+
+        <div class="row justify-content-center">
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'My sweetie 🎀.jpg' %}">
+                    <h5 class="mt-2">dyson</h5>
+                    <p>known for its innovative vacuum cleaners, hair care tools, and air purifiers.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'Microwave Ovens - All Solo Microwave Ovens _ Samsung Singapore.jpg' %}">
+                    <h5 class="mt-2">microwave</h5>
+                    <p>they cook, reheat, and defrost food quickly, saving time and energy.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'Router Wifi Tenda 300Mbps F3.jpg' %}">
+                    <h5 class="mt-2">wifi</h5>
+                    <p>keeps us connected, mobile, and productive in today’s digital world..</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'download (2).jpg' %}">
+                    <h5 class="mt-2">macbook</h5>
+                    <p>deliver premium performance, durability, and integration that support both work and creativity.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'download (7).jpg' %}">
+                    <h5 class="mt-2">AC</h5>
+                    <p>cool indoor spaces, improve comfort, and regulate air quality.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'Apple Watch ⌚️ SE 2nd Generation Aesthetic.jpg' %}">
+                    <h5 class="mt-2">apple watch</h5>
+                    <p>keeps you connected, tracks health, and supports daily productivity.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'download (6).jpg' %}">
+                    <h5 class="mt-2">ipad</h5>
+                    <p>portability, versatility, and creative power, making it useful for work, study, and entertainment.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'iphone17.webp' %}">
+                    <h5 class="mt-2">iphone</h5>
+                    <p>iPhone matters as a smart, secure, and versatile tool for modern life.
+</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'De mooiste TV, ook als hij uit staat.jpg' %}">
+                    <h5 class="mt-2">Television</h5>
+                    <p>powerful medium for knowledge, entertainment, and social connection.</p>
+                </div>
+            </div>
+
+            <div class="col-5th">
+                <div class="card card-box">
+                    <img src="{% static 'AirPods.jpg' %}">
+                    <h5 class="mt-2">Airpods</h5>
+                    <p>wireless convenience, seamless Apple ecosystem integration, and clear audio for calls and music.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
+```
 # OUTPUT:
+![alt text](<Screenshot 2025-12-25 211350.png>)
 # RESULT:
 The Project for responsive web design using Bootstrap is completed successfully.
